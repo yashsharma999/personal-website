@@ -7,7 +7,7 @@ export default function Home() {
     <section className='flex gap-8'>
       <ProfileCard />
       <div className='grow' id='main_wrapper'>
-        Main Wrapper
+        <h1 className='text-2xl font-semibold'>Latest Projects</h1>
       </div>
     </section>
   );
