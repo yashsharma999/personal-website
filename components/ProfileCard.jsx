@@ -9,6 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import Link from 'next/link';
 
 export default function ProfileCard() {
   return (
@@ -50,7 +51,9 @@ export default function ProfileCard() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button variant='secondary' className='px-3'>
-                  <Image src={mail} height={30} width={30} alt='contact' />
+                  <Link href={'contact'}>
+                    <Image src={mail} height={30} width={30} alt='contact' />
+                  </Link>
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
