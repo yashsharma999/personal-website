@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/sonner';
 import { Inter } from 'next/font/google';
 import Navbar from '../components/Navbar';
 import './globals.css';
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
         </main>
+        <Toaster />
       </body>
     </html>
   );

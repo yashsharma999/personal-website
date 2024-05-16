@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -16,6 +16,15 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useForm } from 'react-hook-form';
+import Faq from '@/components/Faq';
+import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
+import { Redis } from '@upstash/redis';
+
+const redis = new Redis({
+  url: 'https://boss-pheasant-38903.upstash.io',
+  token: 'AZf3AAIncDE2NDcyOGQ1N2RmZDM0ZmQ5OTQzYTYxNDU5M2ZjNjk2NXAxMzg5MDM',
+});
 
 const schema = yup
   .object({
@@ -30,6 +39,7 @@ const schema = yup
   .required();
 
 export default function ContactPage() {
+  const [payload, setPayload] = useState(null);
   const form = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -39,73 +49,107 @@ export default function ContactPage() {
     },
   });
 
-  const submit = (values) => {
-    console.log('values', values);
+  const submit = async (values) => {
+    try {
+      setPayload(values);
+      toast('Your message has been sent 🚀');
+      const data = await redis.set(`${values.email}`, JSON.stringify(values));
+    } catch (error) {
+      toast('Some error occured');
+    }
   };
 
   return (
-    <div className='bg-white p-8 rounded-lg max-w-lg mx-auto '>
-      <Form {...form}>
-        <form
-          //onSubmit={form.handleSubmit(submit)}
-          onSubmit={form.handleSubmit(submit)}
-          className='space-y-8 mx-auto'
-        >
-          <FormField
-            control={form.control}
-            name='name'
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    className='bg-[#f9f9f9] rounded-lg outline-none border-none h-12'
-                    placeholder={"What's your name ?"}
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='email'
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    className='bg-[#f9f9f9] rounded-lg outline-none border-none h-12'
-                    placeholder={`What's your email address ?`}
-                    type='email'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='message'
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Textarea
-                    className='bg-[#f9f9f9] rounded-lg outline-none border-none'
-                    {...field}
-                    placeholder='Type your message here.'
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+    <section className='max-w-lg mx-auto'>
+      <div className=' flex flex-col gap-4  mb-8'>
+        <ChatBlock text={`Nice to meet you! 👋`} />
+        <ChatBlock text={`Fill the form below to get in touch! 👇`} />
+      </div>
+      {payload ? (
+        <div className='flex gap-4 items-end flex-col'>
+          <ChatBlock text={`Hi, I am ${payload.name}`} />
+          <ChatBlock className={'max-w-[75%]'} text={payload.message} />
+        </div>
+      ) : (
+        <div className='bg-white shadow-sm p-8 rounded-lg   '>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(submit)} className='space-y-8 '>
+              <FormField
+                control={form.control}
+                name='name'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        className='bg-[#f9f9f9] rounded-lg outline-none border-none h-12'
+                        placeholder={"What's your name ?"}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='email'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        className='bg-[#f9f9f9] rounded-lg outline-none border-none h-12'
+                        placeholder={`What's your email address ?`}
+                        type='email'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name='message'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Textarea
+                        className='bg-[#f9f9f9] rounded-lg outline-none border-none'
+                        {...field}
+                        placeholder='Type your message here.'
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          <Button className='w-full' disabled={false} type='submit'>
-            Send Message
-          </Button>
-        </form>
-      </Form>
-    </div>
+              <Button className='w-full' disabled={false} type='submit'>
+                Send Message
+              </Button>
+            </form>
+          </Form>
+        </div>
+      )}
+
+      <div className=' flex flex-col gap-4 mx-auto mt-8'>
+        <ChatBlock text={`Have more questions? 🤔`} />
+        <ChatBlock text={`Check out the frequently asked questions below`} />
+      </div>
+      <Faq />
+    </section>
   );
 }
+
+const ChatBlock = ({ text, className }) => {
+  return (
+    <div
+      className={cn(
+        'bg-[#eee] w-fit py-2 px-4 rounded-full text-sm font-semibold',
+        className
+      )}
+    >
+      {text}
+    </div>
+  );
+};
