@@ -17,7 +17,10 @@ export default function Faq() {
         />
       </div>
       {faq.map((item, i) => (
-        <div className={cn(`flex flex-col gap-2`, { hidden: i !== current })}>
+        <div
+          key={i}
+          className={cn(`flex flex-col gap-2`, { hidden: i !== current })}
+        >
           <p className='text-sm font-semibold text-slate-500'>
             {item.question}
           </p>
