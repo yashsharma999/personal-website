@@ -1,5 +1,7 @@
+import Articles from '@/components/Articles';
 import TechStack from '@/components/TechStack';
 import WorkExp from '@/components/WorkExp';
+import { getAllPosts } from '@/lib/api';
 import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import ProfileCard from '../components/ProfileCard';
@@ -11,6 +13,7 @@ export default function Home() {
       <div className='grow' id='main_wrapper'>
         <WorkExp />
         <TechStack />
+        <Articles />
       </div>
     </section>
   );
