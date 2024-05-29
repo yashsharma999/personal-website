@@ -14,7 +14,7 @@ import Link from 'next/link';
 export default function ProfileCard() {
   return (
     <div
-      className='shadow-sm w-full lg:w-[300px] max-h-[350px] bg-white rounded-lg'
+      className='lg:sticky lg:top-4 shadow-sm w-full lg:w-[300px] max-h-[350px] bg-white rounded-lg'
       id='profile_card'
     >
       <div className='relative w-full h-[100px] mb-8'>
