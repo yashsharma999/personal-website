@@ -9,9 +9,9 @@ export default function Articles() {
   return (
     <section className='mb-8'>
       <div className='mb-8'>
-        <h1 className='text-2xl font-semibold'>My articles</h1>
+        <h1 className='text-2xl font-semibold'>Articles</h1>
         <h2 className='text-base text-slate-500 '>
-          I write about random things
+          I write about random stuff
         </h2>
       </div>
       <div className='shadow-sm bg-white rounded-lg p-8'>

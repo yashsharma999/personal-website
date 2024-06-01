@@ -31,7 +31,8 @@ export default function ProfileCard() {
       <div className='px-6 py-2 flex flex-col gap-2'>
         <h1 className='text-2xl font-semibold'>I&apos;m Yash Sharma</h1>
         <h2 className='text-base text-slate-500 leading-7'>
-          I&apos;m a frontend developer based in New Delhi, India.
+          I&apos;m a fullstack developer building smooth user experiences on the
+          web.
         </h2>
         <div className='flex gap-4 my-4'>
           <Button>View Portfolio</Button>

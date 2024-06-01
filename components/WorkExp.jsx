@@ -11,7 +11,7 @@ export default function WorkExp() {
       <div className='mb-8'>
         <h1 className='text-2xl font-semibold'>Work Experience</h1>
         <h2 className='text-base text-slate-500 '>
-          Worked with some of the best people.
+          Work experience of 3+ years
         </h2>
       </div>
       <div className='shadow-sm bg-white rounded-lg p-8'>
