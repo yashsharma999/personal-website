@@ -1,4 +1,5 @@
 import Articles from '@/components/Articles';
+import Projects from '@/components/Projects';
 import TechStack from '@/components/TechStack';
 import WorkExp from '@/components/WorkExp';
 import { getAllPosts } from '@/lib/api';
@@ -11,6 +12,7 @@ export default function Home() {
     <section className='flex flex-col lg:flex-row gap-8'>
       <ProfileCard />
       <div className='grow' id='main_wrapper'>
+        <Projects />
         <WorkExp />
         <TechStack />
         <Articles />
