@@ -14,7 +14,7 @@ import Link from 'next/link';
 export default function ProfileCard() {
   return (
     <div
-      className='lg:sticky lg:top-4 shadow-sm w-full lg:w-[300px] max-h-[350px] bg-white rounded-lg'
+      className='lg:sticky lg:top-4 shadow-sm w-full lg:w-[300px] max-h-[450px] bg-white rounded-lg'
       id='profile_card'
     >
       <div className='relative w-full h-[100px] mb-8'>
@@ -36,33 +36,28 @@ export default function ProfileCard() {
         </h2>
         <div className='flex gap-4 my-4'>
           <Button>View Portfolio</Button>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant='secondary' className='px-3'>
-                  <Image src={download} height={30} width={30} alt='download' />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Download Resume</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant='secondary' className='px-3'>
-                  <Link href={'contact'}>
-                    <Image src={mail} height={30} width={30} alt='contact' />
-                  </Link>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Contact Me</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Button variant='secondary' className='px-3'>
+            <Link
+              target={'_blank'}
+              href={'https://www.papermark.io/view/clx965qg80002btubw9isd9dg'}
+            >
+              <Image src={download} height={30} width={30} alt='download' />
+            </Link>
+          </Button>
+          <Button variant='secondary' className='px-3'>
+            <Link href={'contact'}>
+              <Image src={mail} height={30} width={30} alt='contact' />
+            </Link>
+          </Button>
         </div>
+        <Button className='max-w-[200px]'>
+          <Link
+            href={'https://cal.com/yash-sharma-dzuol1/15min'}
+            target='_blank'
+          >
+            Schedule a Call
+          </Link>
+        </Button>
       </div>
     </div>
   );

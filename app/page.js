@@ -15,7 +15,7 @@ export default function Home() {
         <Projects />
         <WorkExp />
         <TechStack />
-        <Articles />
+        {/* <Articles /> */}
       </div>
     </section>
   );
