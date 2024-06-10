@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { Button } from './ui/button';
 import { Separator } from './ui/separator';
 
 export default function Projects() {
@@ -37,22 +38,27 @@ const ProjectBox = ({ data }) => {
         id='info'
         className='grow flex flex-col gap-4 sm:flex-row items-start justify-between'
       >
-        <div>
-          <Link
-            href={data?.link}
-            className='flex items-center gap-1 font-bold hover:text-sky-500 transition ease-in delay-50 duration-150'
-            target={'_blank'}
-          >
-            {data?.title ?? ''}
-            <sup>
-              <Image
-                src={'/icons/open.svg'}
-                height={12}
-                width={12}
-                alt='open project'
-              />
-            </sup>
-          </Link>
+        <div className='w-full'>
+          <div className='flex w-full justify-between items-center'>
+            <Link
+              href={data?.link}
+              className='flex items-center gap-1 font-bold hover:text-sky-500 transition ease-in delay-50 duration-150'
+              target={'_blank'}
+            >
+              {data?.title ?? ''}
+              <sup>
+                <Image
+                  src={'/icons/open.svg'}
+                  height={12}
+                  width={12}
+                  alt='open project'
+                />
+              </sup>
+            </Link>
+            <Button variant='ghost'>
+              <Link href={'/projects/betterside'}>Read more</Link>
+            </Button>
+          </div>
 
           <p className='font-light text-slate-500 '>
             {data?.description ?? ''}
