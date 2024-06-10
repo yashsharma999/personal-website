@@ -28,6 +28,9 @@ export default function Articles() {
                 </h2>
                 <p className='text-slate-500 font-bold pl-8'>{'>'}</p>
               </div>
+              <p className='line-clamp-2 text-sm text-slate-500'>
+                {post?.excerpt ?? ''}
+              </p>
               <div className='text-slate-500 text-sm'>
                 {dayjs(post?.date).format('MMM D, YYYY')}
               </div>

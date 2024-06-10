@@ -9,7 +9,7 @@ export default function Projects() {
       <div className='mb-8'>
         <h1 className='text-2xl font-semibold'>Latest Projects</h1>
       </div>
-      <div className='shadow-sm bg-white rounded-lg p-8'>
+      <div className='shadow-sm bg-white rounded-lg px-8'>
         {projectsList.map((item, i) => (
           <>
             <ProjectBox data={item} key={i} />
