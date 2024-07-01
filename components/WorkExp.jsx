@@ -14,7 +14,7 @@ export default function WorkExp() {
           Work experience of 3+ years
         </h2>
       </div>
-      <div className='shadow-sm bg-white rounded-lg p-8'>
+      <div className='shadow-sm bg-white rounded-lg px-8'>
         {workExp.map((item, i) => (
           <>
             <WorkExpBox data={item} key={i} />

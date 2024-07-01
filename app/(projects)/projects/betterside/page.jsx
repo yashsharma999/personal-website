@@ -87,6 +87,38 @@ export default function BetterSide() {
           </ol>
         </div>
       </section>
+      <section className='grid grid-rows-2 grid-cols-12 gap-4'>
+        <div className='shadow-sm relative rounded-lg h-[400px] relative p-4 col-span-12 lg:col-span-6 row-span-1 lg:row-span-2 bg-gradient-to-r from-sky-800 to-indigo-500'>
+          <div className='overflow-hidden w-[95%] h-[95%] rounded-tl-lg absolute right-0 bottom-0 h-[90%]'>
+            <img
+              src={'/images/bs_dashboard_1.png'}
+              alt='betterside'
+              className='object-cover	 w-full h-full'
+            />
+          </div>
+        </div>
+        <div className='shadow-sm overflow-hidden relative rounded-lg p-4 col-span-6 lg:col-span-3 row-span-1 bg-gradient-to-r from-sky-800 to-indigo-500'>
+          <img
+            src={'/images/bs_4.png'}
+            alt='betterside'
+            className='object-cover absolute right-[-20px] bottom-[-20px] w-full h-full rounded-lg'
+          />
+        </div>
+        <div className='shadow-sm overflow-hidden relative rounded-lg p-4 col-span-6 lg:col-span-3 row-span-1 bg-gradient-to-r from-sky-800 to-indigo-500'>
+          <img
+            src={'/images/bs_6.png'}
+            alt='betterside'
+            className='object-cover absolute right-[-20px] bottom-[-20px] w-full h-full rounded-lg'
+          />
+        </div>
+        <div className='shadow-sm relative overflow-hidden p-4 rounded-lg col-span-12 lg:col-span-6 row-span-1 bg-gradient-to-r from-sky-800 to-indigo-500'>
+          <img
+            src={'/images/bs_3.png'}
+            alt='betterside'
+            className='object-cover absolute bottom-[-20px]  w-[90%] h-full rounded-lg'
+          />
+        </div>
+      </section>
 
       {/* <section className='flex flex-col gap-4 text-center'>
         <h1 className='text-4xl'>{`Your complete business toolkit 🧰`}</h1>
