@@ -20,6 +20,7 @@ import Faq from '@/components/Faq';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import { Redis } from '@upstash/redis';
+import { PageWrapper } from '@/lib/pageWrapper';
 
 const redis = new Redis({
   url: 'https://decent-tetra-30112.upstash.io',
@@ -67,8 +68,12 @@ export default function ContactPage() {
       </div>
       {payload ? (
         <div className='flex gap-4 items-end flex-col'>
-          <ChatBlock text={`Hi, I am ${payload.name}`} />
-          <ChatBlock className={'max-w-[75%]'} text={payload.message} />
+          <PageWrapper>
+            <div className='flex gap-4 flex-col items-end '>
+              <ChatBlock text={`Hi, I am ${payload.name}`} />
+              <ChatBlock className={'max-w-[75%]'} text={payload.message} />
+            </div>
+          </PageWrapper>
         </div>
       ) : (
         <div className='bg-white shadow-sm p-8 rounded-lg   '>
