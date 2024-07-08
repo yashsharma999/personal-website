@@ -104,6 +104,6 @@ const projectsList = [
     dateOfCompletetion: 'In progress',
     link: `https://www.betterside.fun/`,
     slug: '#',
-    image: '/images/betterside.png',
+    image: '/images/betterside_logo.png',
   },
 ];

@@ -10,11 +10,12 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import Link from 'next/link';
+import { FaMessage } from 'react-icons/fa6';
 
 export default function ProfileCard() {
   return (
     <div
-      className='lg:sticky lg:top-4 shadow-sm w-full lg:w-[300px] max-h-[450px] bg-white rounded-lg'
+      className='lg:sticky lg:top-4 shadow-sm w-full lg:w-[300px] max-h-[450px] bg-white pb-8 rounded-lg'
       id='profile_card'
     >
       <div className='relative w-full h-[100px] mb-8'>
@@ -31,26 +32,27 @@ export default function ProfileCard() {
       <div className='px-6 py-2 flex flex-col gap-2'>
         <h1 className='text-2xl font-semibold'>I&apos;m Yash Sharma</h1>
         <h2 className='text-base text-slate-500 leading-7'>
-          I&apos;m a fullstack developer building smooth user experiences on the
-          web.
+          A fullstack developer focused on crafting smooth user experiences.
+          <br />
+          <span className='text-sky-500'>{`#buildinpublic #indiehacking`}</span>
         </h2>
         <div className='flex gap-4 my-4'>
-          <Button>View Portfolio</Button>
-          <Button variant='secondary' className='px-3'>
-            <Link
-              target={'_blank'}
-              href={'https://www.papermark.io/view/clx965qg80002btubw9isd9dg'}
-            >
-              <Image src={download} height={30} width={30} alt='download' />
-            </Link>
-          </Button>
-          <Button variant='secondary' className='px-3'>
+          <Link
+            target={'_blank'}
+            href={'https://www.papermark.io/view/clx965qg80002btubw9isd9dg'}
+          >
+            <Button variant='secondary'>Resume</Button>
+          </Link>
+
+          <Button variant='secondary' className='px-4'>
             <Link href={'contact'}>
-              <Image src={mail} height={30} width={30} alt='contact' />
+              <FaMessage />
+
+              {/* <Image src={mail} height={30} width={30} alt='contact' /> */}
             </Link>
           </Button>
         </div>
-        <Button className='max-w-[200px]'>
+        <Button className='w-full max-w-[350px]'>
           <Link
             href={'https://cal.com/yash-sharma-dzuol1/15min'}
             target='_blank'

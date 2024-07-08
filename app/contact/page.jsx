@@ -22,8 +22,8 @@ import { toast } from 'sonner';
 import { Redis } from '@upstash/redis';
 
 const redis = new Redis({
-  url: 'https://boss-pheasant-38903.upstash.io',
-  token: 'AZf3AAIncDE2NDcyOGQ1N2RmZDM0ZmQ5OTQzYTYxNDU5M2ZjNjk2NXAxMzg5MDM',
+  url: 'https://decent-tetra-30112.upstash.io',
+  token: 'AXWgAAIncDE1N2ZlYmQxM2E0MGQ0NTUyYjJjMDNkMzc0Y2QyNTcyMXAxMzAxMTI',
 });
 
 const schema = yup
